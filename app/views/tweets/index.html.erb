@@ -1,9 +1,8 @@
-<h1>Listing tweets</h1>
+<h1><%= "#{@user.nick}'s tweets" %></h1>
 
 <table  class="table">
   <thead>
     <tr>
-      <th>User</th>
       <th>Status</th>
       <th></th>
       <th></th>
@@ -14,7 +13,6 @@
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
-        <td><%= tweet.user.nick %></td>
         <td><%= tweet.content %></td>
         <td>  
                   <%= link_to user_tweet_path(tweet.user, tweet.id) do %>

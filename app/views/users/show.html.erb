@@ -1,0 +1,3 @@
+<p> NICK: <%= @user.nick %> </p>
+<p>EMAIL: <%= @user.email %></p>
+<%= link_to "#{@user.nick}'s Tweets", user_tweets_path(@user) %>

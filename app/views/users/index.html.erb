@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>User's nick</th>
+      <th>User's tweets</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.nick, user %></td>
+          <td><%= link_to "See tweets", user_tweets_path(user) %></td>
+        </tr>
+      <% end %> 
+  </tbody>
+</table>

@@ -13,8 +13,9 @@
     <a class="brand" href="#">Rznu-Twitter</a>
     <ul class="nav">
       <li><%= link_to "Home", root_path%></li>
-      <li><%= link_to "User", current_user%></li>
       <% if signed_in? %>
+        <li><%= link_to "My Profile", current_user %></li>
+        <li><%= link_to "All Users", users_path %></li>
         <li><%= link_to "New Tweet", new_user_tweet_path(current_user)%></li>
         <li><%= link_to "Routes", routes_path %></li>
       <% end %>
