@@ -6,7 +6,7 @@
     </tr>
   </thead>
   <tbody>
-  <% @logs.each do |log| %>
+  <% @logs.reverse.each do |log| %>
     <tr>
       <td>
         <%= log.split(' ').first %>

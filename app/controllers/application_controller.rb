@@ -1,12 +1,9 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-
-  before_action :log_action
-
   include SessionsHelper
 
-
+  before_action :log_action
+  before_action :authenticate_user!
+  
   private
 
     def authenticate_user!
@@ -14,9 +11,8 @@ class ApplicationController < ActionController::Base
     end
 
     def log_action
-        log_line = request.fullpath.to_s.ljust(40, " ") + browser.name
-        File.open("log/rznu.log", "a+"){|f| f << log_line + "\n" }
-        # File.write('log/rznu.log', log_line)
+        log_line = request.fullpath.to_s.ljust(40, " ") + browser.name + "\n"
+        File.open("log/rznu.log", "a+"){|f| f << log_line  }
     end
 
 end

@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
 
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  
   # GET /tweets
   # GET /tweets.json
   def index
@@ -30,7 +30,7 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to root_path notice: 'Tweet was successfully created.' }
+        format.html { redirect_to root_path }
         format.json { render action: 'show', status: :created, location: @tweet }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class TweetsController < ApplicationController
   def update
     respond_to do |format|
       if @tweet.update(tweet_params)
-        format.html { redirect_to root_path, notice: 'Tweet was successfully updated.' }
+        format.html { redirect_to root_path}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

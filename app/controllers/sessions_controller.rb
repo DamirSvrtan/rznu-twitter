@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
 
-
 skip_before_action :authenticate_user!
 
 def new
@@ -12,7 +11,6 @@ def create
       sign_in user
       redirect_to user
     else
-      flash.now[:error] = 'Unesena kriva kombinacija E-maila i Lozinke.'
       render 'new'
     end
 end
