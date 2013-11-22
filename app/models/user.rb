@@ -1,9 +1,22 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+
   has_many :tweets, dependent: :destroy
 
-  validates_presence_of :nick
+  before_save { |user| user.email = email.downcase }
+  before_save :create_remeber_token
+
+  has_secure_password
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :nick, :presence => true, :uniqueness => true, :length => { :minimum => 3 }   
+  validates :email, :presence => true, :uniqueness => { :case_sensitive => false }, :format => { :with => VALID_EMAIL_REGEX }
+  validates :password, :presence => true, :length => { :minimum => 5 }
+  validates :password_confirmation, presence: true
+  
+  private
+
+    def create_remeber_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
+
 end

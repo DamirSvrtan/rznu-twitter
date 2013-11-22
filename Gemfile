@@ -20,8 +20,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'devise'
-
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -29,3 +27,5 @@ group :development do
 end
 
 gem "bootstrap-sass"
+
+gem 'bcrypt-ruby', '~> 3.0.0'
