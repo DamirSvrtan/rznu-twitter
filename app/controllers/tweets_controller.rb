@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
+    @user = User.find(params[:tweet][:user_id])
     @tweets = Tweet.all
   end
 

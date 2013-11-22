@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-      <% @routes.each do |route| %>
+      <% @routes.reverse.each do |route| %>
         <% this_route = route.split(' ') %>
         <% this_route.unshift(nil) if this_route.count == 3 %>
         <tr>

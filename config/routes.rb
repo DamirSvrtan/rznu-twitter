@@ -6,7 +6,7 @@ RznuTwitter::Application.routes.draw do
   resources :users do
     resources :tweets
   end
-  root 'tweets#index'
+  root 'home#index'
   get '/routes', to: 'routes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
