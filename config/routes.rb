@@ -10,4 +10,5 @@ RznuTwitter::Application.routes.draw do
   delete '/signout', to: 'sessions#destroy', via: :delete
   root 'home#index'
   get '/routes', to: 'routes#index'
+  get '/logs', to: 'logs#index'
 end

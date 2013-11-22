@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Route</th>
+      <th>Browser</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @logs.each do |log| %>
+    <tr>
+      <td>
+        <%= log.split(' ').first %>
+      </td>
+      <td>
+        <%= log.split(' ').last %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
