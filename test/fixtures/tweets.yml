@@ -2,8 +2,8 @@
 
 one:
   user_id: 1
-  content: MyString
+  content: First users first tweet
 
 two:
-  user_id: 1
-  content: MyString
+  user_id: 2
+  content: Second users first tweet
