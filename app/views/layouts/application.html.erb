@@ -14,19 +14,19 @@
     <ul class="nav">
       <li><%= link_to "Home", root_path%></li>
       <% if signed_in? %>
-        <li><%= link_to "My Profile", current_user %></li>
-        <li><%= link_to "All Users", users_path %></li>
-        <li><%= link_to "New Tweet", new_user_tweet_path(current_user)%></li>
-        <li><%= link_to "Routes", routes_path %></li>
-        <li><%= link_to "Logs path", logs_path %></li>
+        <li><%= link_to "API", api_root_path %></li>
+        <li><%= link_to "My Profile",api_user_path(current_user) %></li>
+        <li><%= link_to "All Users", api_users_path %></li>
+        <li><%= link_to "New Tweet", new_api_user_tweet_path(current_user)%></li>
+        <li><%= link_to "Logs path", api_logs_path %></li>
       <% end %>
     </ul>
     <ul class="nav pull-right">
       <% if signed_in? %>
-        <li><%= link_to "Sign Out", signout_path, method: :delete%></li>
+        <li><%= link_to "Sign Out", session_destroy_path, method: :delete%></li>
       <% else %>
-        <li><%= link_to "Login", signin_path %></li>
-        <li><%= link_to "Register", signup_path %></li>
+        <li><%= link_to "Login", new_session_path %></li>
+        <li><%= link_to "Register", new_api_user_path %></li>
       <% end %>
     </ul>
   </div>

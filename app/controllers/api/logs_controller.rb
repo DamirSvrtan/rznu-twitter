@@ -1,4 +1,4 @@
-class LogsController < ApplicationController
+class Api::LogsController < ApplicationController
 
   skip_before_filter :log_action
 

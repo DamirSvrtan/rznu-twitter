@@ -1,14 +1,18 @@
 RznuTwitter::Application.routes.draw do
 
-  resources :users, only: [:show, :new, :index] do
-    resources :tweets
+  root 'home#index'
+  resources :sessions, only: [:new, :create] do
+  end 
+
+  delete '/sessions', to: 'sessions#destroy', as: :session_destroy
+
+  namespace :api do
+    root 'routes#index'
+    resources :users, only: [:show, :new, :create, :index] do
+      resources :tweets
+    end
+
+    resources :logs, only: [:index]
   end
 
-  get '/signup',  to: 'users#new'  
-  resources :sessions, only: [:create]
-  get '/signin',  to: 'sessions#new'
-  delete '/signout', to: 'sessions#destroy', via: :delete
-  root 'home#index'
-  get '/routes', to: 'routes#index'
-  get '/logs', to: 'logs#index'
 end

@@ -1,7 +1,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Prefix</th>
       <th>Verb</th>
       <th>URI</th>
       <th>Controller#Action</th>
@@ -12,7 +11,6 @@
         <% this_route = route.split(' ') %>
         <% this_route.unshift(nil) if this_route.count == 3 %>
         <tr>
-          <td><%= this_route[0] %></td>
           <td><%= this_route[1]%></td>
           <td><%= this_route[2] %></td>
           <td><%= this_route[3]%></td>

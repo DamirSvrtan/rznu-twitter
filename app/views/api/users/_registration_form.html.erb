@@ -1,7 +1,7 @@
 	<h1 id='form-header'>Registration</h1>
 	<br>
 
-    <%= form_for(@user) do |f| %>
+    <%= form_for [:api, @user] do |f| %>
       <%= render 'shared/error_messages' %>
 
       <b><%= f.label :nick , "Nick" %></b>
@@ -19,5 +19,5 @@
       <%= f.submit "Register", class: "btn" %>
     <% end %>
 
-      <p>Registered user? <%= link_to "Login!", signin_path %></p>
+      <p>Registered user? <%= link_to "Login!", new_api_user_path %></p>
 

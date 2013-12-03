@@ -8,8 +8,8 @@
   <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= link_to user.nick, user %></td>
-          <td><%= link_to "See tweets", user_tweets_path(user) %></td>
+          <td><%= link_to user.nick, api_user_path(user) %></td>
+          <td><%= link_to "See tweets", api_user_tweets_path(user) %></td>
         </tr>
       <% end %> 
   </tbody>

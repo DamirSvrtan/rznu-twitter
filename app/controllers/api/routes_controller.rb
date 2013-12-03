@@ -1,4 +1,4 @@
-class RoutesController < ApplicationController
+class Api::RoutesController < ApplicationController
 
   def index
       r = Rails.application.routes.routes
