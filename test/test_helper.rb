@@ -1,6 +1,10 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'rake/testtask'
+Rake::TestTask.new do |t|
+  t.pattern = "test/controllers/*_test.rb"
+end
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
