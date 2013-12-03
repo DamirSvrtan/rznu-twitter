@@ -11,8 +11,10 @@ class ApplicationController < ActionController::Base
     end
 
     def log_action
-        log_line = request.fullpath.to_s.ljust(40, " ") + browser.name + "\n"
-        File.open("log/rznu.log", "a+"){|f| f << log_line  }
+        if Rails.env.development?
+          log_line = request.fullpath.to_s.ljust(40, " ") + browser.name + "\n"
+          File.open("log/rznu.log", "a+"){|f| f << log_line  }
+        end
     end
 
 end
