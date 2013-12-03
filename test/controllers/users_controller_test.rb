@@ -25,22 +25,5 @@ class UsersControllerTest < ActionController::TestCase
     get :show, id: @user
     assert_response :success
   end
-
-  # test "should get edit" do
-  #   get :edit, id: @tweet
-  #   assert_response :success
-  # end
-
-  # test "should update user" do
-  #   patch :update, id: @user, user: { nick: @user.nick}
-  #   assert_redirected_to user_path(assigns(:user))
-  # end
-
-  # test "should destroy tweet" do
-  #   assert_difference('Tweet.count', -1) do
-  #     delete :destroy, id: @tweet
-  #   end
-
-  #   assert_redirected_to tweets_path
-  # end
+  
 end
