@@ -13,6 +13,8 @@ RznuTwitter::Application.routes.draw do
     end
 
     resources :logs, only: [:index]
+    get '/stats/popular', to: 'stats#popular'
+    get 'stats/how_to', to: 'stats#how_to'
   end
 
 end

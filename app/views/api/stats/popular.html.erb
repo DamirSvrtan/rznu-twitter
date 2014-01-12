@@ -1,0 +1,21 @@
+<%= link_to "How to MapReduce", api_stats_how_to_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Route</th>
+      <th>Occurrences</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @occurrences.each do |occurrence| %>
+    <tr>
+      <td>
+        <%= occurrence.split(' ').first %>
+      </td>
+      <td>
+        <%= occurrence.split(' ').last %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
