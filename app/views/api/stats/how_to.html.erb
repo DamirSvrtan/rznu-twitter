@@ -24,10 +24,14 @@
 <h1> Generate a fresh list of most visited URL paths </h1>
 
 <ol>
+  <li> <b> ssh localhost</b></li>
   <li><b>Start the cluster:</b> /usr/local/hadoop/bin/start-all.sh</li>
-  <li><b>Copy to HDFS:</b> bin/hadoop dfs -copyFromLocal ~/Desktop/rails_projects/rznu-twitter/log/rznu-twitter.log /user/hduser/rznu-twitter </li>
-  <li> <b>View files:</b> bin/hadoop dfs -ls /user/hduser </li>
-  <li><b>Start MapReduce:</b> bin/hadoop jar VideoCount.jar VideoCount /user/hduser/rznu-logs /user/hduser/browser-output-2</li>
-  <li><b>Fetch files to the temp folder:</b> bin/hadoop dfs -getmerge /user/hduser/browser-output-2 /tmp/rznu-logs-map-reduce/</li>
+  <li><b>Delete old read directory from HDFS</b>  bin/hadoop dfs -rmr /user/hduser/rznu-logs</li>
+  <li><b> Delete old output directory from HDFS</b> bin/hadoop dfs -rmr /user/hduser/browser-output</li>
+  <li><b>Copy to HDFS:</b> bin/hadoop dfs -copyFromLocal /home/damir/Desktop/rails_projects/rznu-twitter/log/rznu.log /user/hduser/rznu-logs </li>
+  <li><b>View files:</b> bin/hadoop dfs -ls /user/hduser </li>
+  <li><b>Start MapReduce:</b> bin/hadoop jar VideoCount.jar VideoCount /user/hduser/rznu-logs /user/hduser/browser-output</li>
+  <li></b>Delete old file:</b> rm /tmp/rznu-logs-map-reduce/browser-output </li>
+  <li><b>Fetch files to the temp folder:</b> bin/hadoop dfs -getmerge /user/hduser/browser-output /tmp/rznu-logs-map-reduce/</li>
   <li><b>Stop the cluster:</b> /usr/local/hadoop/bin/stop-all.sh</li>
 </ol>
